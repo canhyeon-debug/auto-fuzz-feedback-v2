@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Virtual environments and local secrets
+.venv/
+venv/
+.env
+.env.*
+*.pem
+*.key
+
+# Local/proprietary DBC and machine-specific runner settings
+A5.dbc
+*.dbc
+pi_can_lab/experiment_runner.yaml
+pi_can_lab/distributed_runner.yaml
+pi_can_lab/distributed_node.yaml
+
+# Generated captures and analysis artifacts
+pi_can_lab/logs/
+pi_can_lab/experiments/
+pi_can_lab/experiments_vcan/
+pi_can_lab/distributed_results/
+pi_can_lab/rx_logs/
+*.log
+
+# Local agent/editor state
+.agents/
+.aws/
+.codex/
+.idea/
+.vscode/
+.DS_Store

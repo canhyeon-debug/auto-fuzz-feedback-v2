@@ -1,0 +1,33 @@
+bus:
+  interface: socketcan
+  channel: can0
+
+sender:
+  bus_name: b_can
+  dbc: ../A5.dbc
+  output: logs/b_can_tx.jsonl
+  output_policy: numbered
+
+  # DBC: BCM_01, standard ID 0x65A, 8 bytes
+  message: BCM_01
+  id: 0x65A
+  set:
+    BCM1_Warnblink_Taster: 1
+
+  # 현재 버스에서 정상 프레임을 받은 뒤 해당 신호만 변경합니다.
+  base:
+    mode: live
+    timeout_seconds: 5.0
+
+  transmit:
+    count: 1
+    interval_ms: 100.0
+    send_timeout_seconds: 1.0
+    restore_original: true
+    restore_count: 1
+    restore_delay_ms: 100.0
+
+  safety:
+    max_count: 100
+    min_interval_ms: 10.0
+    allow_protected_dbc_patch: false

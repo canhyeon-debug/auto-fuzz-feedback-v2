@@ -1,0 +1,27 @@
+bus:
+  interface: socketcan
+  channel: can0
+
+receiver:
+  bus_name: b_can
+  dbc: ../A5.dbc
+  output: logs/b_can.jsonl
+  output_policy: numbered
+  write_report: true
+  duration_seconds: 0
+  recv_timeout_seconds: 1.0
+  stats_interval_seconds: 5.0
+  flush_every: 50
+  log_all: true
+  decode_all: false
+  print_mode: changes
+  watch:
+    ids:
+      - 0x65A
+      - 0x366
+    messages:
+      - BCM_01
+      - Blinkmodi_02
+    signals:
+      - BCM1_Warnblink_Taster
+      - BM_Warnblinken
